@@ -4,6 +4,7 @@ module DBI
     #
     # DEPRECATED: Please use a regular Time or DateTime object.
    class Time
+      include Deprecated
       attr_accessor :hour, :minute, :second
 
       private
@@ -25,7 +26,7 @@ module DBI
 
       public
       
-      deprecate :initialize, :public
+      deprecated :initialize, :public
 
       alias :min :minute
       alias :min= :minute=

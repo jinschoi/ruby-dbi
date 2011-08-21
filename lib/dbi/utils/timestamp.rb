@@ -5,6 +5,8 @@ module DBI
     # DEPRECATED: Please use a regular DateTime object.
     #
    class Timestamp
+      include Deprecated
+
       attr_accessor :year, :month, :day
       attr_accessor :hour, :minute, :second
       attr_writer   :fraction
@@ -36,7 +38,7 @@ module DBI
 
       public
       
-      deprecate :initialize, :public
+      deprecated :initialize, :public
 
       # Returns true if +timestamp+ has a year, month, day, hour, minute,
       # second and fraction equal to the comparing object.

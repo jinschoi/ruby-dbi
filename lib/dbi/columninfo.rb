@@ -2,7 +2,7 @@ require 'delegate'
 
 begin
     require 'rubygems'
-    gem 'deprecated', "= 2.0.1"
+    gem 'deprecated', "= 3.0.0"
 rescue LoadError => e
 end
 
@@ -23,7 +23,7 @@ module DBI
     # All of these forms have assignment forms as well.
     #
     class ColumnInfo < DelegateClass(Hash)
-
+        include Deprecated
         # Create a new ColumnInfo object.
         #
         # If no Hash is provided, one will be created for you. The hash will be
@@ -81,7 +81,7 @@ module DBI
         # Aliases - XXX soon to be deprecated
         def self.deprecated_alias(target, source) # :nodoc:
             define_method(target) { |*args| method_missing(source, *args) }
-            deprecate target 
+            deprecated target 
         end
 
         deprecated_alias :is_nullable?, :nullable

@@ -5,6 +5,7 @@ module DBI
     # DEPRECATED: Please use a regular Date or DateTime object.
     #
     class Date
+        include Deprecated
         attr_accessor :year, :month, :day
 
         # Aliases
@@ -54,6 +55,6 @@ module DBI
 
         public
 
-        deprecate :initialize, :public
+        deprecated :initialize, :public
     end
 end
